@@ -1,0 +1,38 @@
+Ansible-Server
+---------------
+Step1:
+------
+- create EC2 & Install Ansible
+
+Step2:
+------
+create IAM User -- Admin Access
+aws configure -- Ansible-Server
+----------OR-------------------
+create IAM Role -- Admin Access
+Attach IAM Role -- Ansible-Server
+
+Step3:
+------
+- install dependency in ansible server __> pipe3 install botocore, boto3
+
+Step4:
+------
+create file, name mandatory as __> aws_ec2.yml
+
+Step5:
+------
+Fetch EC2 Details using Ansible
+-------------------------------
+ansible-inventory -i aws_ec2.yml --graph
+
+Step6:
+------
+Install Package in EC2 Servers
+------------------------------
+ansible-playbook -i aws_ec2.yml -e ansible_user=ec2-user -e ansible_password=DevOps321 dynamic.yml
+
+
+Create Instances in AWS -- Don't have state management in Ansible 
+-----------------------------------------------------------------
+ansible-playbook expense_aws.yml
